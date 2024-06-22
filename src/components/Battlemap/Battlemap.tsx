@@ -1,5 +1,5 @@
 import React from 'react';
-import './Battlemap.css'
+import './Battlemap.css';
 
 const verticalAxis = [1, 2, 3, 4, 5, 6, 7, 8]
 const horizontalAxis = [1, 2, 3, 4, 5, 6, 7, 8]
