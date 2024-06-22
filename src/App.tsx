@@ -4,7 +4,7 @@ import Page from './components/Titlescreen/Titlescreen';
 
 function App() {
   return (
-    <div id="app">
+    <div>
       <Page/>
     </div>
   );

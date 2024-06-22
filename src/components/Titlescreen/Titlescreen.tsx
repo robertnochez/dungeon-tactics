@@ -1,42 +1,46 @@
-/*
 import React from "react";
-import Image from "next/image";  // Correct import for Next.js Image component
-import { Noto_Serif } from "next/font/google";  // Assuming correct usage of next/font/google
 import './Titlescreen.css';
 
-const notoSerif = Noto_Serif({ subsets: ['latin'] });
+const handleArrowClick = () => {
+    const moveSections = document.getElementById("section-what-we-do");
+    if (moveSections) {
+      moveSections.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
 const Page = () => {
     return (
-        <div className="NotoSerif">
-            <div className="sticky-bar-top">
-            <Image
-                src="/assets/dt-logo-black.png"
-                alt="Dungeon Tactics Logo"
-                width={75}
-                height={75}
-            />
+        <html>
+            <div className="sticky-bar-top"></div>
+            <section id="section-home">
+            <div className="image-container">
+                <img src="/assets/dt-logo-grey.png" alt="DT Logo" style={{ height: '300px', width: '300px' }}/>
             </div>
-            <main>
-            <h1>Welcome to My Next.js App</h1>
-            <p>This is the default page.</p>
-            </main>
-      </div>
-      );
-};
+            <div className="text-container">
+                <h1> Welcome to Dungeon Tactics </h1>
+            </div>
+            <div className="text-container">
+                <h2> A Dungeon and Dragons Battle Simulator powered by AI. </h2>
+            </div>
+            <div className="container">
+                <button className="button">
+                    Get started!
+                </button>
+            </div>
+            <div className="text-container">
+                <div className="down-arrow" onClick={handleArrowClick}>
+                ↓
+                </div>
+            </div>
+            </section>
 
-export default Page;
-*/
-
-
-//SIMPLE PAGE FORM
-import './Titlescreen.css';
-
-const Page = () => {
-    return (
-        <div className="titlescreen-container"></div>
+            <section id="section-what-we-do">
+               
+            </section>
+        </html>
     );
 };
+
 
 export default Page;
 
