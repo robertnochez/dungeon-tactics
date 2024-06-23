@@ -37,7 +37,7 @@
     top: 0;
     background-color: black;
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
     padding: 1rem;
     z-index: 10;
@@ -46,45 +46,52 @@
     box-sizing: border-box;
 }
 
-.sticky-bar-top h1 {
-    margin: 0; /* Remove default margin */
-    text-align: center; /* Center align the text */
-    flex: 1; /* Take up remaining space */
-}
-
-.text-container {
+.text-cont {
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Adjust padding as needed */
     display: flex;
     justify-content: center;
     z-index: 1;
-  }
-  
-  .text-container h1 {
+}
+   
+.text-cont h1 {
     color: #C4AC57; 
     font-family: 'Brawler', serif; 
     font-size: xx-large;
     z-index: 1;
   }
 
-  .text-container h2 {
+
+  .text-cont h2 {
+    margin: 0; /* Reset default margin */
+    padding: 10px 0; /* Adjust padding as needed */
     color: #FFF; 
     font-family: 'Brawler', serif; 
     font-size: x-large;
     z-index: 1;
-  }
+}
 
-  .image-row {
+
+
+.image-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Center items horizontally */
     z-index: 1;
-  }
-  
-  .image-cont {
+}
+
+.image-cont {
     position: relative;
-    margin: 10px; /* Optional margin between images */
+    margin: 10px; /* Margin between images */
     width: 300px; /* Adjust width of each image container as needed */
     z-index: 1;
-  }
+}
+
+.image-cont h1 {
+    font-family: 'Brawler', serif;
+    font-size: medium;
+    color: #FFF;
+}
   
   .image {
     max-width: 100%;
@@ -114,13 +121,23 @@
     color: #202020;
     text-align: center;
     z-index: 1;
+    margin: 0; /* Reset margin */
+    padding: 0;
+  }
+
+  .section-top {
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
   .section-character {
+    margin-top: -100px;
+    padding: 0;
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden; /* Ensures content doesn't overflow */
+    height: 120vh;
     z-index: -1;
 }
 
@@ -159,3 +176,43 @@
     background: linear-gradient(to bottom,rgba(32, 32, 32), rgba(32, 32, 32, 0.01));
     z-index: 1;
   }
+
+  .numeric-input-container {
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    margin-bottom: 50px;
+}
+
+.numeric-input-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Brawler', serif;
+    color: white;
+    z-index: 1;
+}
+
+.numeric-input-item label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.simulate-button {
+    background-color: #C4AC57;
+    color: #000000;
+    padding: 0.25rem 2rem;
+    border-radius: 0.25rem;
+    border: 1px solid #202020;
+    cursor: pointer;
+    z-index: 1;
+    margin-bottom: 2rem;
+    width: auto;
+    height: 40px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: 'Brawler', serif; 
+    font-size: medium;
+}
