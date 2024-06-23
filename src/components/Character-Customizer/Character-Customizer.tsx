@@ -1,19 +1,40 @@
-import React, { useState } from 'react';
+import React from "react";
 import './Character-Customizer.css';
 import { useNavigate } from "react-router-dom";
+import { useState} from "react";
 import NumericInput from "react-numeric-input";
+
+interface CheckboxProps {
+    label: string;
+    value: boolean;
+    onChange: () => void;
+}
 
 const Page = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState<number[]>(Array(6).fill(10));
 
     const handleChange = (index: number, value: number | null) => {
-        setValues((prevValues) => {
+        setValues(prevValues => {
             const newValues = [...prevValues];
-            newValues[index] = value ?? 0;  // Provide a default value of 0 if null
+            newValues[index] = value ?? 0; 
             return newValues;
         });
     };
+
+    const [checked, setChecked] = useState<{ [key: string]: boolean }>({ fighter: false, barbarian: false });
+
+    // Typing the function parameter
+    const handleCheckChange = (key: string) => {
+        setChecked(prev => ({ ...prev, [key]: !prev[key] }));
+    };
+
+    const Checkbox: React.FC<CheckboxProps> = ({ label, value, onChange }) => (
+        <label>
+            <input type="checkbox" checked={value} onChange={onChange} />
+            {label}
+        </label>
+    );
 
     const labels = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
 
@@ -39,37 +60,47 @@ const Page = () => {
                     <div className="image-cont">
                         <img src="/assets/dt-fighter.png" alt="DT Fighter" style={{ height: '300px', width: '300px' }} />
                         <h1>Male human fighter</h1>
+                        <Checkbox
+                            label=""
+                            value={checked.fighter}
+                            onChange={() => handleCheckChange('fighter')}
+                        />
                     </div>
                     <div className="image-cont">
-                        <img src="/assets/dt-fighter.png" alt="DT Fighter" style={{ height: '300px', width: '300px' }} />
-                        <h1>Female human fighter</h1>
+                        <img src="/assets/dt-barbarian.png" alt="DT Fighter" style={{ height: '300px', width: '300px' }} />
+                        <h1>Female tiefling barbarian</h1>
+                        <Checkbox
+                            label=""
+                            value={checked.barbarian}
+                            onChange={() => handleCheckChange('barbarian')}
+                        />
                     </div>
                 </div>
                 <div className="text-cont">
                     <h2>2. Customize your stats</h2>
                 </div>
-                <div className="numeric-input-container">
-                    {values.map((value, index) => (
-                        <div key={index} className="numeric-input-item">
-                            <label>{labels[index]}</label>
-                            <NumericInput
-                                className="form-control"
-                                min={0}
-                                max={20}
-                                value={value}
-                                onChange={(valueAsNumber) => handleChange(index, valueAsNumber)}
-                            />
-                         </div>
-                     ))}
-                </div>
+                    <div className="numeric-input-container">
+                        {values.map((value, index) => (
+                            <div key={index} className="numeric-input-item">
+                                <label>{labels[index]}</label>
+                                <NumericInput
+                                    className="form-control"
+                                    min={0}
+                                    max={20}
+                                    value={value}
+                                    onChange={(valueAsNumber) => handleChange(index, valueAsNumber)}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 <div className='text-cont'>
                     <h2>3. Simulate battles against enemies</h2>
                 </div>
                 <div className="container">
-                <button className="button" onClick={() => navigate("/Character-Customizer")}>
-                    Get started!
-                </button>
-            </div>
+                    <button className="button" onClick={() => navigate("/Battlemap")}>
+                        Battle!
+                    </button>
+                </div>
             </section>
         </div>
     );
