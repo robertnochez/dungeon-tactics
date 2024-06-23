@@ -52,7 +52,7 @@ const Page = () => {
                 </div>
             </section>
             <section id="section-character" className="section section-character">
-                <div className="vignette"></div>
+            <div className="vignette"></div>
                 <div className="text-cont">
                     <h2>1. Design your character</h2>
                 </div>
