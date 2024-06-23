@@ -5,30 +5,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  .main {
+}
+
+.main {
     padding: 5rem 0;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  
-  body {
-    background-color: #202020; 
 }
 
+body, html {
+    background-color: #202020;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal overflow */
+}
 
-  .title {
+.title {
     margin: 0;
     line-height: 1.15;
     font-size: 4rem;
     text-align: center;
-  }
-  
-  .sticky-bar-top-home {
+    font-family: 'Brawler', serif;
+    color: #C4AC57;
+}
+
+.sticky-bar-top-home {
     position: sticky;
     top: 0;
     background-color: black;
@@ -43,38 +47,39 @@
 }
 
 .sticky-bar-top-home h1 {
-  color: #FFFFFF; 
-  font-family: 'Brawler', serif; 
+    color: #FFFFFF;
+    font-family: 'Brawler', serif;
 }
 
 .image-container {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  align-self: center;
-  margin-top: 10px;
-  height: 100%;
-  width: auto;
-  margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 10px;
+    height: 100%;
+    width: auto;
+    margin-bottom: 10px;
+    z-index: 1;
 }
 
 .text-container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .text-container h1 {
-  color: #C4AC57; 
-  font-family: 'Brawler', serif; 
-  margin-bottom: 10px;
-  font-size: xx-large;
+    color: #C4AC57;
+    font-family: 'Brawler', serif;
+    margin-bottom: 10px;
+    font-size: xx-large;
 }
 
 .text-container h2 {
-  color: #FFFFFF; 
-  font-family: 'Brawler', serif; 
-  margin-top: 0px;
-  font-size: large;
+    color: #FFFFFF;
+    font-family: 'Brawler', serif;
+    margin-top: 0;
+    font-size: large;
 }
 
 .button {
@@ -91,148 +96,138 @@
     justify-content: center;
     text-align: center;
     align-items: center;
-    font-family: 'Brawler', serif; 
+    font-family: 'Brawler', serif;
     font-size: medium;
 }
 
 .down-arrow {
-  bottom: 2rem;
-  cursor: pointer;
-  z-index: 1;
-  font-size: 2rem;
-  font-family : 'Brawler', serif;
-  color: #FFFFFF;
-  margin-bottom: 20px;
+    bottom: 2rem;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 2rem;
+    font-family: 'Brawler', serif;
+    color: #FFFFFF;
+    margin-bottom: 30px;
 }
 
 .section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #202020;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #202020;
+    text-align: center;
 }
 
 .section-home {
-  justify-content: center;
-  width: 100%;
+    justify-content: center;
+    width: 100%;
 }
 
 .section-what-we-do {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-image: url('/public/assets/fantasy-background.png'); 
-  background-size: cover;
-  background-position: center;
-  font-family: 'Brawler', serif;
-  color: white;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('/public/assets/fantasy-background.png');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Brawler', serif;
+    color: white;
 }
 
 .section-what-we-do h1 {
-  z-index: 2;
+    z-index: 2;
 }
 
 .vignette {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom,rgba(32, 32, 32), rgba(32, 32, 32, 0.01));
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(32, 32, 32), rgba(32, 32, 32, 0.01));
+    z-index: 1;
 }
 
-
 .circle-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: -200px;
-  margin-top: 0px;
-  width: 80%;
-  z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0px;
+    margin-top: 0px;
+    width: 80%;
+    z-index: 1;
 }
 
 .circle {
-  width: 30px;
-  height: 30px;
-  background-color: #202020;
-  border: 2px solid #C4AC57;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  font-size: 15px;
-  font-weight: bold;
-  z-index: 1;
+    width: 30px;
+    height: 30px;
+    background-color: #202020;
+    border: 2px solid #C4AC57;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 15px;
+    font-weight: bold;
+    z-index: 1;
 }
 
 .circle::after {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: calc(100% + 20px);
-  background-color: transparent;
-  border-left: 2px dotted #C4AC57;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 100%;
-  z-index: 1;
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: calc(100% + 20px);
+    background-color: transparent;
+    border-left: 2px dotted #C4AC57;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    z-index: 1;
 }
 
 .circle-container:last-of-type .circle::after {
-  display: none;
+    display: none;
 }
 
 .circle-text {
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-  z-index: 1;
-  color: white;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    color: white;
 }
 
 .circle-text h2 {
-  margin-left: 35px;
-  z-index: 1;
-  font-size: large;
-  color: white
+    margin-left: 35px;
+    z-index: 1;
+    font-size: large;
+    color: white;
 }
 
-.left-column {
-  width: 50%;
-  height: 80%;
-  display: flex;
-  justify-content: left;
-  flex-direction: column;
-  align-items: left;
-  margin-top: -100px;
-
+.parent-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-.right-column {
-  width: 50%;
-  height: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
+.left-column, .right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    overflow: hidden;
 }
 
-.left-column h1 {
-  font-family: 'Brawler', serif;
-  text-align: left;
-  margin-left: -225px;
-  margin-top: -100px;
-  justify-content: left;
-  color: #C4AC57;
-
-}
-
-.right-column h1 {
-font-family: 'Brawler', serif;
-text-align: left;
-
+.left-column h1, .right-column h1 {
+    font-family: 'Brawler', serif;
+    color: #C4AC57;
+    margin-top: 0;
+    text-align: left;
 }

@@ -52,26 +52,33 @@ const Page = () => {
 
             <section id="section-what-we-do" className="section section-what-we-do">
                 <div className="vignette"></div>
-                <div className="right-column"></div>
-                <div className="left-column">
-                    <h1>Test new characters easily!</h1>
-                    <div className="circle-container">
-                        <div className="circle-text">
-                            <div className="circle">1</div>
-                            <h2>Design your character</h2>
+                <div className="parent-container">
+                    <div className="left-column">
+                        <h1>Test new characters easily!</h1>
+                        <div className="circle-container">
+                            <div className="circle-text">
+                                <div className="circle">1</div>
+                                <h2>Design your character</h2>
+                            </div>
+                        </div>
+                        <div className="circle-container">
+                            <div className="circle-text">
+                                <div className="circle">2</div>
+                                <h2>Customize your stats</h2>
+                            </div>
+                        </div>
+                        <div className="circle-container">
+                            <div className="circle-text">
+                                <div className="circle">3</div>
+                                <h2>Simulate battles against enemies</h2>
+                            </div>
                         </div>
                     </div>
-                    <div className="circle-container">
-                        <div className="circle-text">
-                            <div className="circle">2</div>
-                            <h2>Customize your stats</h2>
+                    <div className="right-column">
+                        <div className="image-container">
+                            <img src="/assets/dt-battle.png" alt="DT Logo" style={{ height: '400px', width: '400px', border: '5px solid #C4AC57'}}/>
                         </div>
-                    </div>
-                    <div className="circle-container">
-                        <div className="circle-text">
-                            <div className="circle">3</div>
-                            <h2>Simulate battles against enemies</h2>
-                        </div>
+                        <h1>Explore different encounters!</h1>
                     </div>
                 </div>
             </section>
