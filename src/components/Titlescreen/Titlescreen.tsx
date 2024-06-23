@@ -58,7 +58,7 @@ const Page = () => {
                     <div className="circle-container">
                         <div className="circle-text">
                             <div className="circle">1</div>
-                            <h2>Choose your class</h2>
+                            <h2>Design your character</h2>
                         </div>
                     </div>
                     <div className="circle-container">
