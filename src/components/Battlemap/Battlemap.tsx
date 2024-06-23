@@ -1,4 +1,3 @@
-import './Battlemap.css';
 //import Player from '../Player/Player';
 
 /*
@@ -35,12 +34,16 @@ const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
 interface Piece {
   image: string;
+  speed: number;
   x: number;
   y: number;
 }
 
 const initialBoardState: Piece[] = [
-  { image: "/assets/dt-fighter.png", x: 3, y: 3 }
+  { image: "/assets/dt-fighter.png", speed: 30, x: 1, y: 1 },
+  { image: "/assets/dt-goblin.png", speed: 30, x: 3, y: 6 },
+  { image: "/assets/dt-goblin.png", speed: 30, x: 5, y: 6 },
+  { image: "/assets/dt-goblin.png", speed: 30, x: 4, y: 5 }
 ];
 
 export default function Battlemap() {
@@ -80,21 +83,17 @@ export default function Battlemap() {
 
       if (x < minX) {
         activePiece.style.left = `${minX}px`;
-      }
-      else if (x > maxX) {
+      } else if (x > maxX) {
         activePiece.style.left = `${maxX}px`;
-      }
-      else {
+      } else {
         activePiece.style.left = `${x}px`;
       }
 
       if (y < minY) {
         activePiece.style.top = `${minY}px`;
-      }
-      else if (y > maxY) {
+      } else if (y > maxY) {
         activePiece.style.top = `${maxY}px`;
-      }
-      else {
+      } else {
         activePiece.style.top = `${y}px`;
       }
     }
@@ -107,14 +106,18 @@ export default function Battlemap() {
       const y = Math.abs(Math.ceil((e.clientY - battlemap.offsetTop - 800) / 100));
 
       setPieces((value) => {
-        const updatedPieces = value.map((p) => {
+        const pieces = value.map((p) => {
           if (p.x === gridX && p.y === gridY) {
-            p.x = x;
-            p.y = y;
+            // Calculate the allowed movement range based on speed
+            const allowedMovement = p.speed / 10;
+            if (Math.abs(x - gridX) <= allowedMovement && Math.abs(y - gridY) <= allowedMovement) {
+              p.x = x;
+              p.y = y;
+            }
           }
           return p;
         });
-        return updatedPieces;
+        return pieces;
       });
       setActivePiece(null);
     }
