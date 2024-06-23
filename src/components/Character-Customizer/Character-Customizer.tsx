@@ -3,16 +3,32 @@ import './Character-Customizer.css';
 import { useNavigate } from "react-router-dom";
 import { useState} from "react";
 import NumericInput from "react-numeric-input";
+import CharacterSelection from './checkbox'; 
 
 interface CheckboxProps {
     label: string;
     value: boolean;
-    onChange: () => void;
+    onChange: () => void;  // This is the type for a function that returns void
 }
 
-const Page = () => {
+const Checkbox: React.FC<CheckboxProps> = ({ label, value, onChange }) => {
+    return (
+        <label>
+            {label}
+            <input type="checkbox" checked={value} onChange={onChange} />
+        </label>
+    );
+};
+
+const Page: React.FC = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState<number[]>(Array(6).fill(10));
+
+    const [checked, setChecked] = useState<{ [key: string]: boolean }>({ fighter: false, barbarian: false });
+
+    const handleCheckChange = (key: string) => {
+        setChecked(prev => ({ ...prev, [key]: !prev[key] }));
+    };
 
     const handleChange = (index: number, value: number | null) => {
         setValues(prevValues => {
@@ -21,20 +37,6 @@ const Page = () => {
             return newValues;
         });
     };
-
-    const [checked, setChecked] = useState<{ [key: string]: boolean }>({ fighter: false, barbarian: false });
-
-    // Typing the function parameter
-    const handleCheckChange = (key: string) => {
-        setChecked(prev => ({ ...prev, [key]: !prev[key] }));
-    };
-
-    const Checkbox: React.FC<CheckboxProps> = ({ label, value, onChange }) => (
-        <label>
-            <input type="checkbox" checked={value} onChange={onChange} />
-            {label}
-        </label>
-    );
 
     const labels = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma'];
 
@@ -107,3 +109,5 @@ const Page = () => {
 };
 
 export default Page;
+
+
