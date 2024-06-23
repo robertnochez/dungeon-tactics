@@ -5,12 +5,10 @@ interface Props {
     num: number;
 }
 
-/*
-export default function Tile((num): Props) {
-    if (num % 2 === 0) {
+export default function Tile(num: Props) {
+    if (num.num % 2 === 0) {
         return <div className="title black-tile"></div>;
     } else {
         return <div className="title white-tile"></div>
     }
 }
-*/
