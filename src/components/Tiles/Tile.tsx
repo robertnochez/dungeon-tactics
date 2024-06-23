@@ -1,16 +1,18 @@
 import React from 'react';
-import './Tile.css';
 
-interface Props {
-    num: number;
+interface TileProps {
+  image?: string;
+  number: number;
 }
 
-/*
-export default function Tile((num): Props) {
-    if (num % 2 === 0) {
-        return <div className="title black-tile"></div>;
-    } else {
-        return <div className="title white-tile"></div>
-    }
-}
-*/
+const Tile: React.FC<TileProps> = ({ image, number }) => {
+  const className = (number % 2 === 0) ? 'black-tile' : 'white-tile';
+
+  return (
+    <div className={`tile ${className}`}>
+      {image && <img src={image} alt="" className="chess-piece" />}
+    </div>
+  );
+};
+
+export default Tile;

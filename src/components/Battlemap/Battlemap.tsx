@@ -1,6 +1,7 @@
-import React from 'react';
 import './Battlemap.css';
+//import Player from '../Player/Player';
 
+/*
 const verticalAxis = [1, 2, 3, 4, 5, 6, 7, 8]
 const horizontalAxis = [1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -23,4 +24,128 @@ export default function Battlemap() {
         }
     }
     return <div id= "battlemap">{map}</div>
+}
+*/
+import { MouseEvent, useRef, useState } from "react";
+import Tile from "../Tiles/Tile";
+import './Battlemap.css';
+
+const verticalAxis = ["1", "2", "3", "4", "5", "6", "7", "8"];
+const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+interface Piece {
+  image: string;
+  x: number;
+  y: number;
+}
+
+const initialBoardState: Piece[] = [
+  { image: "/assets/dt-fighter.png", x: 3, y: 3 }
+];
+
+export default function Battlemap() {
+  const [activePiece, setActivePiece] = useState<HTMLElement | null>(null);
+  const [gridX, setGridX] = useState(0);
+  const [gridY, setGridY] = useState(0);
+  const [pieces, setPieces] = useState<Piece[]>(initialBoardState);
+  const battlemapRef = useRef<HTMLDivElement>(null);
+
+  function grabPiece(e: React.MouseEvent) {
+    const element = e.target as HTMLElement;
+    const battlemap = battlemapRef.current;
+    if (element.classList.contains("chess-piece") && battlemap) {
+      setGridX(Math.floor((e.clientX - battlemap.offsetLeft) / 100));
+      setGridY(Math.abs(Math.ceil((e.clientY - battlemap.offsetTop - 800) / 100)));
+
+      const x = e.clientX - 50;
+      const y = e.clientY - 50;
+      element.style.position = "absolute";
+      element.style.left = `${x}px`;
+      element.style.top = `${y}px`;
+
+      setActivePiece(element);
+    }
+  }
+
+  function movePiece(e: React.MouseEvent) {
+    const battlemap = battlemapRef.current;
+    if (activePiece && battlemap) {
+      const minX = battlemap.offsetLeft - 25;
+      const minY = battlemap.offsetTop - 25;
+      const maxX = battlemap.offsetLeft + battlemap.clientWidth - 75;
+      const maxY = battlemap.offsetTop + battlemap.clientHeight - 75;
+      const x = e.clientX - 50;
+      const y = e.clientY - 50;
+      activePiece.style.position = "absolute";
+
+      if (x < minX) {
+        activePiece.style.left = `${minX}px`;
+      }
+      else if (x > maxX) {
+        activePiece.style.left = `${maxX}px`;
+      }
+      else {
+        activePiece.style.left = `${x}px`;
+      }
+
+      if (y < minY) {
+        activePiece.style.top = `${minY}px`;
+      }
+      else if (y > maxY) {
+        activePiece.style.top = `${maxY}px`;
+      }
+      else {
+        activePiece.style.top = `${y}px`;
+      }
+    }
+  }
+
+  function dropPiece(e: React.MouseEvent) {
+    const battlemap = battlemapRef.current;
+    if (activePiece && battlemap) {
+      const x = Math.floor((e.clientX - battlemap.offsetLeft) / 100);
+      const y = Math.abs(Math.ceil((e.clientY - battlemap.offsetTop - 800) / 100));
+
+      setPieces((value) => {
+        const updatedPieces = value.map((p) => {
+          if (p.x === gridX && p.y === gridY) {
+            p.x = x;
+            p.y = y;
+          }
+          return p;
+        });
+        return updatedPieces;
+      });
+      setActivePiece(null);
+    }
+  }
+
+  let board = [];
+
+  for (let j = verticalAxis.length - 1; j >= 0; j--) {
+    for (let i = 0; i < horizontalAxis.length; i++) {
+      const number = j + i + 2;
+      let image = undefined;
+
+      pieces.forEach((p) => {
+        if (p.x === i && p.y === j) {
+          image = p.image;
+        }
+      });
+
+      board.push(<Tile key={`${j},${i}`} image={image} number={number} />);
+    }
+  }
+
+  return (
+    <div
+      onMouseMove={(e) => movePiece(e)}
+      onMouseDown={(e) => grabPiece(e)}
+      onMouseUp={(e) => dropPiece(e)}
+      id="battlemap"
+      ref={battlemapRef}
+    >
+      {board}
+    </div>
+  );
 }
