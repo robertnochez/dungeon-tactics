@@ -1,8 +1,47 @@
 #battlemap {
   display: grid;
+  justify-content: left;
+  margin-left: 300px;
   grid-template-columns: repeat(8, 100px);
   grid-template-rows: repeat(8, 100px);
   width: 800px;
   height: 800px;
   background-color: #779556;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+}
+
+.text-container h1 {
+  color: #C4AC57;
+  font-family: 'Brawler', serif;
+  margin-bottom: 10px;
+  font-size: xx-large;
+}
+
+.text-container h2 {
+  color: #FFFFFF;
+  font-family: 'Brawler', serif;
+  margin-top: 0;
+  font-size: large;
+}
+
+.display-linebreak {
+  white-space: pre-line;
+}
+
+.sticky-bar-top {
+  position: sticky;
+  top: 0;
+  background-color: black;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding: 1rem;
+  z-index: 10;
+  height: 50px;
+  width: 100%;
+  box-sizing: border-box;
 }

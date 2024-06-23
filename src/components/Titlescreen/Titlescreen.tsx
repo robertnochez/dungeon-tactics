@@ -76,7 +76,7 @@ const Page = () => {
                     </div>
                     <div className="right-column">
                         <div className="image-container">
-                            <img src="/assets/dt-battle.png" alt="DT Logo" style={{ height: '400px', width: '400px', border: '5px solid #C4AC57'}}/>
+                            <img src="/assets/dt-battle.png" alt="DT Logo" style={{ height: '400px', width: '400px', border: '5px solid black'}}/>
                         </div>
                         <h1>Explore different encounters!</h1>
                     </div>

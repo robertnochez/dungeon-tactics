@@ -28,6 +28,7 @@ export default function Battlemap() {
 import { MouseEvent, useRef, useState } from "react";
 import Tile from "../Tiles/Tile";
 import './Battlemap.css';
+import { useNavigate } from "react-router-dom";
 
 const verticalAxis = ["1", "2", "3", "4", "5", "6", "7", "8"];
 const horizontalAxis = ["a", "b", "c", "d", "e", "f", "g", "h"];
@@ -41,6 +42,7 @@ interface Piece {
 
 const initialBoardState: Piece[] = [
   { image: "/assets/dt-fighter.png", speed: 30, x: 1, y: 1 },
+  { image: "/assets/dt-barbarian.png", speed: 30, x: 2, y: 2 },
   { image: "/assets/dt-goblin.png", speed: 30, x: 3, y: 6 },
   { image: "/assets/dt-goblin.png", speed: 30, x: 5, y: 6 },
   { image: "/assets/dt-goblin.png", speed: 30, x: 4, y: 5 }
@@ -140,15 +142,37 @@ export default function Battlemap() {
     }
   }
 
+  const navigate = useNavigate();
+
   return (
-    <div
-      onMouseMove={(e) => movePiece(e)}
-      onMouseDown={(e) => grabPiece(e)}
-      onMouseUp={(e) => dropPiece(e)}
-      id="battlemap"
-      ref={battlemapRef}
-    >
-      {board}
-    </div>
+    <>
+      <div className="sticky-bar-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" style={{ height: '30px', width: '30px' }} onClick={() => navigate(-2)}>
+          <path d="M3 9l9-7 9 7v11H3V9z" />
+          <path d="M9 21V12h6v9" />
+        </svg>
+      </div>
+      <div
+        onMouseMove={(e) => movePiece(e)}
+        onMouseDown={(e) => grabPiece(e)}
+        onMouseUp={(e) => dropPiece(e)}
+        id="battlemap"
+        ref={battlemapRef}
+      >
+        {board}
+      </div>
+      <div className="text-container">
+        <h1>Battle Status</h1>
+      </div>
+      <div className="text-container">
+          <h2>Number of enemies: 3</h2>
+        </div>
+        <div className="text-container">
+          <h2>Fighter health: 24</h2>
+        </div>
+        <div className="text-container">
+          <h2>Barbarian health: 39</h2>
+      </div>
+    </>
   );
 }
