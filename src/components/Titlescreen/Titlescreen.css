@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Brawler&display=swap');
 
-
 .container {
     display: flex;
     flex-direction: column;
@@ -18,7 +17,7 @@
   }
   
   body {
-    background-color: #202020; /* Light grey background */
+    background-color: #202020; 
 }
 
 
@@ -27,11 +26,11 @@
     line-height: 1.15;
     font-size: 4rem;
     text-align: center;
-    font: Noto_Serif;
   }
   
   .sticky-bar-top {
     position: sticky;
+    top: 0;
     background-color: black;
     display: flex;
     justify-content: center;
@@ -41,12 +40,6 @@
     height: 50px;
     width: 100%;
     box-sizing: border-box;
-}
-
-.sticky-bar-top img {
-  height: 100%; 
-  width: auto; 
-  object-fit: cover;
 }
 
 .sticky-bar-top h1 {
@@ -107,7 +100,8 @@
   z-index: 1;
   font-size: 2rem;
   font-family : 'Brawler', serif;
-  color: #FFFFFF
+  color: #FFFFFF;
+  margin-bottom: 20px;
 }
 
 .section {
@@ -125,19 +119,26 @@
 }
 
 .section-what-we-do {
-  background-image: url('/assets/fantasy-background.png');
-  background-size: cover;  
-  background-position: center; 
-  height: 100vh;  
-  width: 100%; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  color: white; 
-  text-align: center; 
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/public/assets/fantasy-background.png'); 
+  background-size: cover;
+  background-position: center;
+  font-family: 'Brawler', serif;
+  color: white;
 }
 
+.section-what-we-do h1 {
+  z-index: 2;
+}
 
-
-  
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,rgba(32, 32, 32), rgba(32, 32, 32, 0.01));
+  z-index: 1;
+}

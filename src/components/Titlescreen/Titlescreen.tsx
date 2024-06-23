@@ -9,8 +9,9 @@ const handleArrowClick = () => {
   };
 
 const Page = () => {
+
     return (
-        <html>
+        <div>
             <div className="sticky-bar-top"></div>
             <section id="section-home">
             <div className="image-container">
@@ -33,11 +34,11 @@ const Page = () => {
                 </div>
             </div>
             </section>
-
-            <section id="section-what-we-do">
-               
+            <section id="section-what-we-do" className="section section-what-we-do">
+                <div className="vignette"></div>
+                <h1> test </h1>
             </section>
-        </html>
+        </div>
     );
 };
 

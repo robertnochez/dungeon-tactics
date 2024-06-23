@@ -12,7 +12,7 @@ export interface Entity {
     intelligence: number;
     wisdom: number;
     charisma: number;
-
+    
     position: {x: number; y:number};
     holding_item: boolean;
 }
