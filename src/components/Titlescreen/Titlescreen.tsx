@@ -1,5 +1,6 @@
 import React from "react";
 import './Titlescreen.css';
+import { useNavigate } from "react-router-dom";
 
 const handleArrowClick = () => {
     const moveSections = document.getElementById("section-what-we-do");
@@ -16,6 +17,8 @@ const handleArrowClick = () => {
   };
 
 const Page = () => {
+
+    const navigate = useNavigate(); 
 
     return (
         <div>
@@ -36,7 +39,7 @@ const Page = () => {
                 <h2> A Dungeon and Dragons Battle Simulator powered by AI. </h2>
             </div>
             <div className="container">
-                <button className="button">
+                <button className="button" onClick={() => navigate("/Character-Customizer")}>
                     Get started!
                 </button>
             </div>
