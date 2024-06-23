@@ -2,7 +2,6 @@ import 'devextreme/dist/css/dx.light.css';
 import './App.css';
 import React from 'react';
 import Battlemap from './components/Battlemap/Battlemap';
-/*
 import Page from './components/Titlescreen/Titlescreen';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CharacterCustomizer from './components/Character-Customizer/Character-Customizer';
@@ -15,18 +14,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Page />} />
         <Route path="/Character-Customizer" element={<CharacterCustomizer />} />
+        <Route path="/Battlemap" element={<Battlemap />} />
       </Routes>
     </Router>
   );
 }
-*/
 
-function App() {
-  return (
-    <div id = "app">
-      <Battlemap/>
-    </div>
-  );
-}
 
 export default App;
