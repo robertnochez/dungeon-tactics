@@ -22,7 +22,7 @@ const Page = () => {
 
     return (
         <div>
-            <div className="sticky-bar-top">
+            <div className="sticky-bar-top-home">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" style={{ height: '30px', width: '30px'}} onClick={handleHomeClick}>
                     <path d="M3 9l9-7 9 7v11H3V9z" /> 
                     <path d="M9 21V12h6v9" />

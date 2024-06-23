@@ -28,7 +28,7 @@
     text-align: center;
   }
   
-  .sticky-bar-top {
+  .sticky-bar-top-home {
     position: sticky;
     top: 0;
     background-color: black;
@@ -42,7 +42,7 @@
     box-sizing: border-box;
 }
 
-.sticky-bar-top h1 {
+.sticky-bar-top-home h1 {
   color: #FFFFFF; 
   font-family: 'Brawler', serif; 
 }
@@ -192,12 +192,14 @@
   display: flex;
   align-items: center;
   z-index: 1;
+  color: white;
 }
 
 .circle-text h2 {
   margin-left: 35px;
   z-index: 1;
   font-size: large;
+  color: white
 }
 
 .left-column {
